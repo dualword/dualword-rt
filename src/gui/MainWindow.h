@@ -1,7 +1,7 @@
 /*
-	DualWord-RT : http://github.com/dualword/dualword-rt
+    DualWord-RT : https://github.com/dualword/dualword-rt
 
-	Copyright (C) 2015 Alexander Busorgin
+    Copyright (C) 2015-2024 Alexander Busorgin
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,8 +20,6 @@
 #ifndef MAINWINDOW_H_
 #define MAINWINDOW_H_
 
-#include <QtGui>
-
 #include <memory>
 
 #include "Time.h"
@@ -37,7 +35,7 @@ class MainWindow : public QMainWindow {
 public:
   enum State{new1,wait,done,notready};
 
-	MainWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
+    MainWindow(QWidget *p = 0);
 	virtual ~MainWindow();
 
 protected:

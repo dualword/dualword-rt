@@ -1,7 +1,7 @@
 /*
-	DualWord-RT : http://github.com/dualword/dualword-rt
+    DualWord-RT : https://github.com/dualword/dualword-rt
 
-	Copyright (C) 2015 Alexander Busorgin
+    Copyright (C) 2015-2024 Alexander Busorgin
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 #ifndef GUI_SCENE_H_
 #define GUI_SCENE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <memory>
 
 class Scene  : public QGraphicsScene {

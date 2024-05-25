@@ -4,6 +4,7 @@ TARGET = dualword-rt
 TEMPLATE = app
 message(Building: $${TARGET})
 
+QT += widgets
 CONFIG += qt thread console release
 
 DEPENDPATH += .

@@ -1,7 +1,7 @@
 /*
-	DualWord-RT : http://github.com/dualword/dualword-rt
+    DualWord-RT : https://github.com/dualword/dualword-rt
 
-	Copyright (C) 2015 Alexander Busorgin
+    Copyright (C) 2015-2024 Alexander Busorgin
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #include "DualwordRT.h"
 #include "global.h"
 
-MainWindow::MainWindow(QWidget *p, Qt::WindowFlags f) : QMainWindow(p, f), scene(), rand(RT_DMIN,RT_DMAX),
+MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DMAX),
 	msg(""){
 
 	setWindowTitle(qApp->applicationName());
@@ -133,6 +133,6 @@ void MainWindow::showAbout(){
 	str.append(" ").append(qApp->applicationVersion()).append("<br>");
 	str.append("License: GPL v3 <br/>");
 	str.append("Website: <a href='http://github.com/dualword/dualword-rt'>Dualword-RT</a> <br/>");
-	str.append("&copy;2015 Alexander Busorgin <br/>");
+    str.append("&copy;2015-2024 Alexander Busorgin <br/>");
 	QMessageBox::about(this, tr("About"), str );
 }
