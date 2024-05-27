@@ -29,6 +29,8 @@
 
 using namespace std;
 
+struct dat;
+
 class MainWindow : public QMainWindow {
   Q_OBJECT
 
@@ -61,12 +63,13 @@ private:
 	View glview;
     State state;
     Time tL, tR;
-    QTimer *timer;
+    QScopedPointer<QTimer> timer;
 	QMenu  *menu;
 	QAction *toggle, *info, *about;
 	int pause;
 	Rnd rand;
 	QString msg;
+    QVector<dat> data;
 
 };
 

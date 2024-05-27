@@ -87,6 +87,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 	}else if (state == State::notready){
 		stateNotReady();
 	}
+    QMainWindow::keyPressEvent(event);
 }
 
 void MainWindow::stateNew(){
@@ -99,9 +100,10 @@ void MainWindow::stateNew(){
 void MainWindow::stateWait(){
 	state = State::notready;
 	scene.printMsg(tr("Press 2 buttons (P and Q) when you see a yellow circle..."));
-	timer = new QTimer(this);
+    timer.reset(new QTimer());
+    timer->setTimerType(Qt::PreciseTimer);
 	timer->setSingleShot(true);
-	connect(timer, SIGNAL(timeout()), this, SLOT(stateVisual()));
+    connect(timer.get(), SIGNAL(timeout()), this, SLOT(stateVisual()));
 	pause = rand() * 1000;
 	timer->start(pause);
 }
@@ -116,9 +118,26 @@ void MainWindow::stateDone(){
 	tL.reset();
 	tR.reset();
 	state = State::new1;
-	scene.printMsg("Reaction time: Left hand = " + QString::number(tL.elapsedMilli()) + " ms. "
-			"Right hand = " + QString::number(tR.elapsedMilli()) + " ms.\n\n"
-			 "               Press P or Q to continue...");
+    data.append(dat{tL.elapsedMilli(), tR.elapsedMilli()});
+    int minl=RT_MAX, minr=RT_MAX, maxl=0, maxr=0, avrgl=0, avrgr=0;
+    foreach (const auto& d, data) {
+        if(d.left < minl) minl = d.left;
+        if(d.right < minr) minr = d.right;
+        if(d.left > maxl) maxl = d.left;
+        if(d.right > maxr) maxr = d.right;
+        avrgl += d.left;
+        avrgr += d.right;
+    }
+
+    QString msg;
+    msg.append("Reaction time: Left hand = " + QString::number(tL.elapsedMilli()) + " ms. ");
+    msg.append("Right hand = " + QString::number(tR.elapsedMilli()) + " ms.\n");
+    msg.append("               Press P or Q to continue.\n");
+    msg.append("Attempts:" + QString::number(data.size()));
+    msg.append(" Min:"+QString::number(minl)+"/"+QString::number(minr));
+    msg.append(" Max:"+QString::number(maxl)+"/"+QString::number(maxr));
+    msg.append(" Average:"+QString::number(avrgl/data.size())+"/"+QString::number(avrgr/data.size()) + " (L/R)");
+    scene.printMsg(msg);
 }
 
 void MainWindow::stateNotReady(){

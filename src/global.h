@@ -25,6 +25,10 @@ static const int RT_MAX = 1000; // upper limit (ms)
 static const int RT_DMIN = 1; // delay lower limit (ms)
 static const int RT_DMAX = 5; // delay upper limit (ms)
 
+struct dat {
+    int left;
+    int right;
 
+};
 
 #endif /* GLOBAL_H_ */
