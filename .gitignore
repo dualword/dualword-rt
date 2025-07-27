@@ -1,10 +1,20 @@
+#
+dualword-rt
+.build
+Makefile
+.qmake.stash
 
+#
 /.cproject
 /.project
 /.externalToolBuilders
 /.settings
 
-dualword-rt
-.build
-Makefile
-
+#
+chessx-mod.cflags
+chessx-mod.config
+chessx-mod.creator
+chessx-mod.creator.user
+chessx-mod.cxxflags
+chessx-mod.files
+chessx-mod.includes
