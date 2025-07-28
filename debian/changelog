@@ -1,3 +1,5 @@
 dualword-rt (0.1.0-1) unstable; urgency=medium
 
   * Initial release (Closes: #1109976)  
+
+ -- admin <admin@example.com>  Sun, 27 Jul 2025 15:15:15 +0300

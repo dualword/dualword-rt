@@ -1,0 +1,2 @@
+src/dualword-rt usr/bin
+debian/dualword-rt.1 usr/share/man/man1/

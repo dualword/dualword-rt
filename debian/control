@@ -1,7 +1,7 @@
 Source: dualword-rt
-Section: Science
+Section: science
 Priority: optional
-Maintainer: root <root@localhost>
+Maintainer: admin <admin@example.com>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.5.1
 Homepage: https://github.com/dualword/dualword-rt
@@ -13,4 +13,4 @@ Package: dualword-rt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: program for measuring bimanual simple visual reaction time.
-  DualWord-RT - open-source cross-platform computer program for measuring bimanual simple visual reaction time.
+ DualWord-RT - a program for measuring bimanual simple visual reaction time.
