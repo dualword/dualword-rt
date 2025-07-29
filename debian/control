@@ -12,5 +12,5 @@ Rules-Requires-Root: no
 Package: dualword-rt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: program for measuring bimanual simple visual reaction time.
+Description: program for measuring bimanual simple visual reaction time
  DualWord-RT - a program for measuring bimanual simple visual reaction time.
