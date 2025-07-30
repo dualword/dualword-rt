@@ -152,6 +152,6 @@ void MainWindow::showAbout(){
 	str.append(" ").append(qApp->applicationVersion()).append("<br>");
 	str.append("License: GPL v3 <br/>");
 	str.append("Website: <a href='http://github.com/dualword/dualword-rt'>Dualword-RT</a> <br/>");
-    str.append("&copy;2015-2024 Alexander Busorgin <br/>");
+    str.append("&copy;2015-2025 Alexander Busorgin <br/>");
 	QMessageBox::about(this, tr("About"), str );
 }

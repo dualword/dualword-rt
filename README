@@ -1,10 +1,6 @@
 DualWord-RT - open-source cross-platform computer program for measuring 
 bimanual simple visual reaction time.
 
-How to install:
-	- verify the checksum of the zip file.
-	- unzip and run dualword-rt.
-
 How to build:
 	- prerequisites: Qt 5.15
 	- qmake

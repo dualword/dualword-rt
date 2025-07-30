@@ -30,7 +30,9 @@ SOURCES += \
 	gui/Scene.cpp \
 	gui/View.cpp \
 	gui/MainWindow.cpp
-				
+
+RESOURCES = dualword-rt.qrc
+
 OBJECTS_DIR = .build/obj
 MOC_DIR     = .build/moc
 RCC_DIR     = .build/rcc

@@ -30,7 +30,7 @@ DualwordRT::DualwordRT(int &argc, char **argv) : QApplication(argc, argv) {
 
 	QApplication::setQuitOnLastWindowClosed(true);
 	QCoreApplication::thread()->setPriority(QThread::HighestPriority);
-
+    setWindowIcon(QIcon(":/dualword-rt.ico"));
 
 }
 
