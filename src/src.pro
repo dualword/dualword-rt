@@ -33,6 +33,10 @@ SOURCES += \
 
 RESOURCES = dualword-rt.qrc
 
+unix {	
+    QMAKE_LFLAGS += -z now
+}
+
 OBJECTS_DIR = .build/obj
 MOC_DIR     = .build/moc
 RCC_DIR     = .build/rcc
