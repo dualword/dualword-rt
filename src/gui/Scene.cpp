@@ -1,7 +1,7 @@
 /*
     DualWord-RT : https://github.com/dualword/dualword-rt
 
-    Copyright (C) 2015-2024 Alexander Busorgin
+    Copyright (C) 2015-2025 Alexander Busorgin
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,11 +19,11 @@
 
 #include "Scene.h"
 
-Scene::Scene( QObject *p) : QGraphicsScene(p) {
+Scene::Scene(QObject *p) : QGraphicsScene(p) {
 	setup();
 }
 
-Scene::Scene( qreal x, qreal y, qreal w, qreal hh, QObject *p) : QGraphicsScene(x,y,w,hh,p) {
+Scene::Scene(qreal x, qreal y, qreal w, qreal hh, QObject *p) : QGraphicsScene(x, y, w, hh, p) {
 	setup();
 }
 
@@ -42,7 +42,7 @@ void Scene::setup(){
 	circle.reset(new QGraphicsEllipseItem( QRect( left, top, side, side ),0));
 	circle->setPen( QPen(Qt::black) );
 	circle->setBrush( Qt::yellow );
-	addItem(circle.data());
+    addItem(circle.get());
 	circle->setVisible(false);
 
 	side = std::min(width(),height()) * 0.01;
@@ -50,28 +50,28 @@ void Scene::setup(){
 	dot.reset(new QGraphicsEllipseItem( QRect( left, top, side, side ),0));
 	dot->setPen( QPen(Qt::black) );
 	dot->setBrush( Qt::black );
-	addItem(dot.data());
+    addItem(dot.get());
 
-	ti.reset(new QGraphicsSimpleTextItem( "" ));
-	ti->setPos(width() / 2 - ti->boundingRect().width() / 2,top);
-	ti->setFont(QFont("Times", 18, QFont::Normal));
-	addItem(ti.data());
-	ti->setVisible(false);
+    txt.reset(new QGraphicsSimpleTextItem( "" ));
+    txt->setPos(width() / 2 - txt->boundingRect().width() / 2,top);
+    txt->setFont(QFont("Times", 18, QFont::Normal));
+    addItem(txt.get());
+    txt->setVisible(false);
 
 }
 
 void Scene::printMsg(const QString& str){
 	circle->setVisible(false);
-	ti->setVisible(true);
-	ti->setText(str);
+    txt->setVisible(true);
+    txt->setText(str);
 
-	ti->setPos(width() / 2 - ti->boundingRect().width() / 2,
-			height()/2 + ti->boundingRect().height());
+    txt->setPos(width() / 2 - txt->boundingRect().width() / 2,
+            height()/2 + txt->boundingRect().height());
 
 }
 
 void Scene::showCirle(){
 	circle->setVisible(true);
 	circle->setZValue(1);
-	ti->setVisible(false);
+    txt->setVisible(false);
 }
