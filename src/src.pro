@@ -32,6 +32,8 @@ SOURCES += \
 	gui/MainWindow.cpp
 
 RESOURCES = dualword-rt.qrc
+TRANSLATIONS += ../tr/tr_en.ts \
+                ../tr/tr_ru.ts
 
 unix {	
     QMAKE_LFLAGS += -z now

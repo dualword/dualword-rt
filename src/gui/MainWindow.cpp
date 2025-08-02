@@ -24,6 +24,10 @@
 MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DMAX),
 	msg(""){
 
+//    translator = new QTranslator(this);
+//    if (translator->load(":tr_ru.qm"))
+//             QCoreApplication::installTranslator(translator);
+
 	setWindowTitle(qApp->applicationName());
     statusBar();
     statusBar()->setSizeGripEnabled(false);
@@ -130,13 +134,13 @@ void MainWindow::stateDone(){
     }
 
     QString msg;
-    msg.append("Reaction time: Left hand = " + QString::number(tL.elapsedMilli()) + " ms. ");
-    msg.append("Right hand = " + QString::number(tR.elapsedMilli()) + " ms.\n");
-    msg.append("               Press P or Q to continue.\n");
-    msg.append("Attempts:" + QString::number(data.size()));
-    msg.append(" Min:"+QString::number(minl)+"/"+QString::number(minr));
-    msg.append(" Max:"+QString::number(maxl)+"/"+QString::number(maxr));
-    msg.append(" Average:"+QString::number(avrgl/data.size())+"/"+QString::number(avrgr/data.size()) + " (L/R)");
+    msg.append(tr("Reaction time: Left hand = ") + QString::number(tL.elapsedMilli()) + " ms. ");
+    msg.append(tr("Right hand = ") + QString::number(tR.elapsedMilli()) + " ms.\n");
+    msg.append(tr("               Press P or Q to continue.\n"));
+    msg.append(tr("Attempts:") + QString::number(data.size()));
+    msg.append(tr(" Min:") +QString::number(minl)+"/"+QString::number(minr));
+    msg.append(tr(" Max:") +QString::number(maxl)+"/"+QString::number(maxr));
+    msg.append(tr(" Average:") +QString::number(avrgl/data.size())+"/"+QString::number(avrgr/data.size()) + tr(" (L/R)"));
     scene.printMsg(msg);
 }
 

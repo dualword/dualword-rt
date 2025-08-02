@@ -70,6 +70,7 @@ private:
 	Rnd rand;
 	QString msg;
     QVector<dat> data;
+    QTranslator* translator;
 
 };
 
