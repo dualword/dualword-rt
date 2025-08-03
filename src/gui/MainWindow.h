@@ -65,7 +65,7 @@ private:
     Time tL, tR;
     QScopedPointer<QTimer> timer;
 	QMenu  *menu;
-	QAction *toggle, *info, *about;
+    QAction *toggle, *about;
 	int pause;
 	Rnd rand;
 	QString msg;

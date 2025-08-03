@@ -21,13 +21,11 @@
 #include "DualwordRT.h"
 #include "global.h"
 
-MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DMAX),
-	msg(""){
+MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DMAX), msg(""){
 
-//    translator = new QTranslator(this);
-//    if (translator->load(":tr_ru.qm"))
-//             QCoreApplication::installTranslator(translator);
-
+    translator = new QTranslator(this);
+    QSettings settings;
+    if (translator->load(":tr_" + settings.value("lang", "en").toString() + ".qm")) QCoreApplication::installTranslator(translator);
 	setWindowTitle(qApp->applicationName());
     statusBar();
     statusBar()->setSizeGripEnabled(false);
@@ -38,11 +36,25 @@ MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DM
 
 	menu = new QMenu(&glview);
 	menu->addSeparator();
-	toggle = new QAction(menu);
-	toggle->setText(tr("Toggle Full Screen"));
-	connect(toggle,SIGNAL(triggered()),this,SLOT(fullScreen()));
-	menu->addAction(toggle);
-	menu->addSeparator();
+    toggle = new QAction(menu);
+    toggle->setText(tr("Toggle Full Screen"));
+    connect(toggle,SIGNAL(triggered()),this,SLOT(fullScreen()));
+    menu->addAction(toggle);
+    auto lm = menu->addMenu(tr("Languages"));
+    auto act = new QAction("English");
+    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
+        Q_UNUSED(b);
+        QSettings settings;
+        settings.setValue("lang", "en");
+    });
+    lm->addAction(act);
+    act = new QAction("Русский");
+    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
+        Q_UNUSED(b);
+        QSettings settings;
+        settings.setValue("lang", "ru");
+    });
+    lm->addAction(act);
 	about = new QAction(menu);
 	about->setText(tr("About"));
 	menu->addAction(about);

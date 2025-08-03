@@ -57,5 +57,9 @@
 Press P or Q to continue...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Languages</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

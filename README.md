@@ -1,6 +1,9 @@
 DualWord-RT - open-source cross-platform computer program for measuring 
 bimanual simple visual reaction time.  
 
+Features:
+ - Languages: English, Russian.
+
 License: GNU GENERAL PUBLIC LICENSE Version 3  
 Source code: https://github.com/dualword/dualword-rt  
 

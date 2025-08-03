@@ -5,7 +5,7 @@ TEMPLATE = app
 message(Building: $${TARGET})
 
 QT += widgets
-CONFIG += qt thread console release
+CONFIG += qt thread console lrelease release
 
 DEPENDPATH += .
 INCLUDEPATH += . app gui

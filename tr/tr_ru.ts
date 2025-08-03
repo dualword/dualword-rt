@@ -59,5 +59,9 @@ Press P or Q to continue...</source>
         <translation>Ошибка.
 Нажмите P или Q чтобы продолжить...</translation>
     </message>
+    <message>
+        <source>Languages</source>
+        <translation>Языки</translation>
+    </message>
 </context>
 </TS>

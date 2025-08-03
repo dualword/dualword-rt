@@ -1,7 +1,7 @@
 /*
     DualWord-RT : https://github.com/dualword/dualword-rt
 
-    Copyright (C) 2015-2024 Alexander Busorgin
+    Copyright (C) 2015-2025 Alexander Busorgin
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 
 DualwordRT::DualwordRT(int &argc, char **argv) : QApplication(argc, argv) {
 	QCoreApplication::setApplicationName("Dualword-RT");
+    QCoreApplication::setOrganizationName("dualword-rt");
 	QCoreApplication::setOrganizationDomain("dualword-rt");
 
 	#ifdef _VER

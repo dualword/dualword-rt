@@ -3,6 +3,7 @@ dualword-rt
 .build
 Makefile
 .qmake.stash
+src/.qm
 
 #
 /.cproject
@@ -11,10 +12,10 @@ Makefile
 /.settings
 
 #
-chessx-mod.cflags
-chessx-mod.config
-chessx-mod.creator
-chessx-mod.creator.user
-chessx-mod.cxxflags
-chessx-mod.files
-chessx-mod.includes
+dualword-rt.cflags
+dualword-rt.config
+dualword-rt.creator
+dualword-rt.creator.user
+dualword-rt.cxxflags
+dualword-rt.files
+dualword-rt.includes

@@ -1,5 +1,5 @@
-dualword-rt (0.1.4-1) unstable; urgency=medium
+dualword-rt (0.2.0-1) unstable; urgency=medium
 
   * Initial release (Closes: #1109976)
 
- -- admin <admin@example.com>  Fri, 01 Aug 2025 07:07:07 +0300
+ -- admin <admin@example.com>  Sun, 03 Aug 2025 07:07:07 +0300
