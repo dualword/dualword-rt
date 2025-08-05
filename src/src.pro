@@ -38,6 +38,7 @@ TRANSLATIONS += ../tr/tr_en.ts \
 
 unix {	
     QMAKE_LFLAGS += -z now
+    QMAKE_CLEAN += $${QMAKE_DEL_DIR} $$PWD/.qm/*
 }
 
 OBJECTS_DIR = .build/obj
