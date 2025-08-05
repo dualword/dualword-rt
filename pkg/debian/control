@@ -1,7 +1,7 @@
 Source: dualword-rt
 Section: science
 Priority: optional
-Maintainer: admin <admin@example.com>
+Maintainer: Alexander Busorgin <alexanderbusorgin@yahoo.com>
 Build-Depends: debhelper-compat (= 13), automake, qtbase5-dev (>= 5.15)
 Standards-Version: 4.7.2
 Homepage: https://github.com/dualword/dualword-rt
@@ -16,6 +16,6 @@ Description: program for measuring bimanual simple visual reaction time
  DualWord-RT - open-source cross-platform program for measuring bimanual simple
  visual reaction time.
  Features:
-  - Languages: English, Russian.
+  - Languages: English, German, Russian.
  License: GPL-3.0-or-later.
  Source code: https://github.com/dualword/dualword-rt.

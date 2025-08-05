@@ -33,7 +33,8 @@ SOURCES += \
 
 RESOURCES = dualword-rt.qrc
 TRANSLATIONS += ../tr/tr_en.ts \
-                ../tr/tr_ru.ts
+                ../tr/tr_ru.ts \
+		../tr/tr_de.ts
 
 unix {	
     QMAKE_LFLAGS += -z now

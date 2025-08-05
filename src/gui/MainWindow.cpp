@@ -48,6 +48,13 @@ MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DM
         settings.setValue("lang", "en");
     });
     lm->addAction(act);
+    act = new QAction("Deutsch");
+    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
+        Q_UNUSED(b);
+        QSettings settings;
+        settings.setValue("lang", "de");
+    });
+    lm->addAction(act);
     act = new QAction("Русский");
     connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
         Q_UNUSED(b);

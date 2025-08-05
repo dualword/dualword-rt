@@ -2,6 +2,7 @@
  <qresource>
      <file alias="dualword-rt.ico">../data/img/dualword-rt.ico</file>
      <file alias="tr_en.qm">.qm/tr_en.qm</file>
+     <file alias="tr_de.qm">.qm/tr_de.qm</file>
      <file alias="tr_ru.qm">.qm/tr_ru.qm</file>
  </qresource>
  </RCC>
