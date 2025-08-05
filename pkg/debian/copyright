@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dualword-rt
 Source: https://github.com/dualword/dualword-rt
+Upstream-Contact: Alexander Busorgin <alexanderbusorgin@yahoo.com>
 
 Files:
  *
