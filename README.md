@@ -4,7 +4,7 @@ bimanual simple visual reaction time.
 Features:
  - Languages: English, German, Russian.
 
-License: GPL-3.0-or-later  
+License: GPL-3+  
 Source code: https://github.com/dualword/dualword-rt  
 
 <p align="middle">

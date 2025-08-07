@@ -1,5 +1,5 @@
-dualword-rt (0.2.3-1) unstable; urgency=medium
+dualword-rt (0.2.4-1) unstable; urgency=medium
 
   * Initial release (Closes: #1109976)
 
- -- Alexander Busorgin <alexanderbusorgin@yahoo.com>  Tue, 05 Aug 2025 07:07:07 +0300
+ -- Alexander Busorgin <alexanderbusorgin@yahoo.com>  Thu, 07 Aug 2025 07:07:07 +0300
