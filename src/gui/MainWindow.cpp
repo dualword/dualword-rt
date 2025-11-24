@@ -84,7 +84,6 @@ void MainWindow::fullScreen() {
 }
 
 void MainWindow::closeEvent(QCloseEvent *event){
-    timer->stop();
     event->accept();
 }
 
