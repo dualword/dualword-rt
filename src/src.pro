@@ -10,7 +10,7 @@ CONFIG += qt thread console lrelease release
 DEPENDPATH += .
 INCLUDEPATH += . app gui
 
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++17
 
 QMAKE_CXXFLAGS += $$CFLAGS $$CPPFLAGS $$CXXFLAGS
 QMAKE_LFLAGS += $$LDFLAGS

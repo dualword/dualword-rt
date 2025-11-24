@@ -35,6 +35,8 @@ public:
 
 public Q_SLOTS:
 	void start();
+    void setValue(const QString&, const QVariant&);
+    QVariant value(const QString&, const QVariant &v = QVariant());
 
 private:
 	QScopedPointer<MainWindow> win;

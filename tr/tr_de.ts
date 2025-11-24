@@ -63,5 +63,9 @@ Drücken Sie die Taste P oder Q, um fortzusetzen...</translation>
         <source>Languages</source>
         <translation>Sprachen</translation>
     </message>
+    <message>
+        <source>New language will be available after a restart.</source>
+        <translation>Die neue Sprache wird nach einem Neustart verfügbar sein.</translation>
+    </message>
 </context>
 </TS>

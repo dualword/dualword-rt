@@ -69,7 +69,7 @@ private:
 	int pause;
 	Rnd rand;
 	QString msg;
-    QVector<dat> data;
+    QList<dat> data;
     QTranslator* translator;
 
 };

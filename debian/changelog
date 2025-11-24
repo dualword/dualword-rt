@@ -1,3 +1,10 @@
+dualword-rt (0.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Ported to Qt6
+
+ -- Alexander Busorgin <alexanderbusorgin@yahoo.com>  Mon, 24 Nov 2025 07:07:07 +0300
+
 dualword-rt (0.2.5-1) unstable; urgency=medium
 
   * Initial release (Closes: #1109976)

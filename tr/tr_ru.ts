@@ -63,5 +63,9 @@ Press P or Q to continue...</source>
         <source>Languages</source>
         <translation>Языки</translation>
     </message>
+    <message>
+        <source>New language will be available after a restart.</source>
+        <translation>Новый язык будет доступен после перезапуска.</translation>
+    </message>
 </context>
 </TS>

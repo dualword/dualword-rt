@@ -61,5 +61,9 @@ Press P or Q to continue...</source>
         <source>Languages</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>New language will be available after a restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

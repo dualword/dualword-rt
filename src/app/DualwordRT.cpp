@@ -23,7 +23,7 @@
 DualwordRT::DualwordRT(int &argc, char **argv) : QApplication(argc, argv) {
 	QCoreApplication::setApplicationName("Dualword-RT");
     QCoreApplication::setOrganizationName("dualword-rt");
-	QCoreApplication::setOrganizationDomain("dualword-rt");
+    QCoreApplication::setOrganizationDomain("dualword-rt");
 
 	#ifdef _VER
 		QApplication::setApplicationVersion(_VER);
@@ -43,4 +43,15 @@ void DualwordRT::start() {
 	win.reset(new MainWindow());
 	win->init();
     win->showMaximized();
+}
+
+
+void DualwordRT::setValue(const QString &key, const QVariant& val){
+    QSettings s;
+    s.setValue(key, val);
+}
+
+QVariant DualwordRT::value(const QString &key, const QVariant& val){
+    QSettings s;
+    return s.value(key, val);
 }

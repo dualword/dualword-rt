@@ -25,14 +25,15 @@ MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DM
 
     translator = new QTranslator(this);
     QSettings settings;
-    if (translator->load(":tr_" + settings.value("lang", "en").toString() + ".qm")) QCoreApplication::installTranslator(translator);
+    QString slang(settings.value("lang", "en").toString());
+    if (translator->load(":tr_" + slang + ".qm")) QCoreApplication::installTranslator(translator);
 	setWindowTitle(qApp->applicationName());
+
     statusBar();
     statusBar()->setSizeGripEnabled(false);
 	glview.setScene( &scene );
     glview.setContextMenuPolicy(Qt::CustomContextMenu);
-	connect(&glview,SIGNAL(customContextMenuRequested(const QPoint)),
-			this,SLOT(contextMenuRequested(QPoint)));
+    connect(&glview,SIGNAL(customContextMenuRequested(const QPoint)),	this,SLOT(contextMenuRequested(QPoint)));
 
 	menu = new QMenu(&glview);
 	menu->addSeparator();
@@ -40,34 +41,33 @@ MainWindow::MainWindow(QWidget *p) : QMainWindow(p), scene(), rand(RT_DMIN,RT_DM
     toggle->setText(tr("Toggle Full Screen"));
     connect(toggle,SIGNAL(triggered()),this,SLOT(fullScreen()));
     menu->addAction(toggle);
+
+    QList<QPair<QString, QString>> lang;
+    lang << QPair<QString, QString>("English", "en") << QPair<QString, QString>("Deutsch", "de")
+         << QPair<QString, QString>("Русский", "ru");
     auto lm = menu->addMenu(tr("Languages"));
-    auto act = new QAction("English");
-    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
-        Q_UNUSED(b);
-        QSettings settings;
-        settings.setValue("lang", "en");
-    });
-    lm->addAction(act);
-    act = new QAction("Deutsch");
-    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
-        Q_UNUSED(b);
-        QSettings settings;
-        settings.setValue("lang", "de");
-    });
-    lm->addAction(act);
-    act = new QAction("Русский");
-    connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
-        Q_UNUSED(b);
-        QSettings settings;
-        settings.setValue("lang", "ru");
-    });
-    lm->addAction(act);
-	about = new QAction(menu);
+    lm->setToolTip(tr("New language will be available after a restart."));
+    foreach (const auto& str, lang){
+        auto act = new QAction(str.first);
+        if(slang == str.second){
+            QFont font;
+            font.setBold(true);
+            act->setFont(font);
+        }
+        connect(act, QOverload<bool>::of(&QAction::triggered), [=](bool b){
+            Q_UNUSED(b);
+            QSettings settings;
+            settings.setValue("lang", str.second);
+        });
+        lm->addAction(act);
+    }
+    about = new QAction(menu);
 	about->setText(tr("About"));
 	menu->addAction(about);
 	connect(about,SIGNAL(triggered()),this,SLOT(showAbout()));
 	setCentralWidget(&glview);
     stateNew();
+
 }
 
 MainWindow::~MainWindow() {
@@ -79,12 +79,12 @@ void MainWindow::init(){
 }
 
 void MainWindow::fullScreen() {
-	setWindowState(this->windowState() ^ Qt::WindowFullScreen);
+    setWindowState(this->windowState() ^ Qt::WindowFullScreen);
 	statusBar()->setVisible(!statusBar()->isVisible());
 }
 
 void MainWindow::closeEvent(QCloseEvent *event){
-	timer->stop();
+    timer->stop();
     event->accept();
 }
 
@@ -153,13 +153,14 @@ void MainWindow::stateDone(){
     }
 
     QString msg;
-    msg.append(tr("Reaction time: Left hand = ") + QString::number(tL.elapsedMilli()) + " ms. ");
-    msg.append(tr("Right hand = ") + QString::number(tR.elapsedMilli()) + " ms.\n");
+    msg.append(tr("Reaction time: Left hand = ")).append(QString::number(tL.elapsedMilli())).append(" ms. ");
+    msg.append(tr("Right hand = ")).append(QString::number(tR.elapsedMilli())).append(" ms.\n");
     msg.append(tr("               Press P or Q to continue.\n"));
-    msg.append(tr("Attempts:") + QString::number(data.size()));
-    msg.append(tr(" Min:") +QString::number(minl)+"/"+QString::number(minr));
-    msg.append(tr(" Max:") +QString::number(maxl)+"/"+QString::number(maxr));
-    msg.append(tr(" Average:") +QString::number(avrgl/data.size())+"/"+QString::number(avrgr/data.size()) + tr(" (L/R)"));
+    msg.append(tr("Attempts:").append(QString::number(data.size())));
+    msg.append(tr(" Min:").append(QString::number(minl)+"/"+QString::number(minr)));
+    msg.append(tr(" Max:").append(QString::number(maxl)).append("/").append(QString::number(maxr)));
+    msg.append(tr(" Average:").append(QString::number(avrgl/data.size())).append("/")
+                   .append(QString::number(avrgr/data.size())).append(tr(" (L/R)")));
     scene.printMsg(msg);
 }
 
@@ -175,6 +176,6 @@ void MainWindow::showAbout(){
 	str.append(" ").append(qApp->applicationVersion()).append("<br>");
 	str.append("License: GPL v3 <br/>");
     str.append("Website: <a href='https://github.com/dualword/dualword-rt'>https://github.com/dualword/dualword-rt</a> <br/>");
-    str.append("&copy;2015-2025 Alexander Busorgin <br/>");
+    str.append("&copy; 2015-2025 Alexander Busorgin <br/>");
 	QMessageBox::about(this, tr("About"), str );
 }
